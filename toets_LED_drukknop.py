@@ -2,7 +2,7 @@ import gpiozero as io #Importeer de library om te gebruiken voor de knop
 from time import sleep # importeer sleep functie van de time library
 from gpiozero import LED # importeer Led functie van de gpiozero library
  
-# Maak variabele voor alle Led's en de knop voor de voetgangers..
+# Maak variabele voor alle Led's en de knop voor de voetgangers...
 rood_stoplicht = LED(26)
 oranje_stoplicht = LED(19)
 groen_stoplicht = LED(13)
