@@ -16,21 +16,25 @@ teller1 = 0
 teller2 = 0
 tellerStart = 0
 while True:
-    LED_speler1.on()
-    LED_speler2.on()
+    LED_speler1.off()
+    LED_speler2.off()
     StartStatus = StartKnop.is_pressed
     if StartStatus and not VorigeStartStatus:
         tellerStart += 1
     VorigeStartStatus = StartStatus
     if tellerStart %2 == 1:
-        print("Game Started")
+        LED_speler1.on()
+        LED_speler2.on()
+        print("Game is begonnen")
+        sleep(random.randint(2, 10))
+        print("START")
         Start = True
     else:
         Start = False                                                                                                                                        
 
 
     while Start:
-        sleep(0)
+
 
         StartStatus = StartKnop.is_pressed
         if StartStatus and not VorigeStartStatus:
@@ -39,6 +43,10 @@ while True:
         if tellerStart %2 == 1:
             Start = True
         else:
+            speler1WIN = False
+            speler2WIN = False
+            teller1 = 0
+            teller2 = 0
             Start = False
 
         Speler1Status = speler1.is_pressed
@@ -54,8 +62,11 @@ while True:
 
         if teller1 %2 == 1 and speler1WIN == False:
             speler1WIN = True
+            print("Speler 1 wint!")
             LED_speler2.off()
+
         
         if teller2 %2 == 1 and speler2WIN == False:
             speler2WIN = True
+            print("speler 2 wint!")
             LED_speler1.off()
