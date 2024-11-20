@@ -1,11 +1,14 @@
 import gpiozero as io
 from time import sleep
 
-knop = io.Button(4, pull_up=False)
+knop = io.Button(21, pull_up=False)
 
 while True:
     sleep(0.1)
-    if knop.value:
+    currentState = knop.is_pressed
+    if currentState and not previousState:
         print("Button is ingedrukt")
     else:
-        print("Button is in rust")
+        print("Button is in rust")                                                                                                                                               
+    previousState = currentState
+    sleep(0.1)
