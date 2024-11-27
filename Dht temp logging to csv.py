@@ -15,5 +15,5 @@ with open(file_path, "a") as log: # Open het bestand in append mode
         except RuntimeError as error: # Als er een RuntimeError optreedt
             print(error.args[0]) # Print de error
             continue # Ga verder met de volgende iteratie van de loop
-        log.write("{0}, {1}, {2}, {3}\n".format(strftime("%Y/%m/%d, %H:%M:%S"), temperature1, temperature2, gemiddelde_temp)) # Schrijf de datum, tijd, temperatuur van sensor 1, temperatuur van sensor 2 en het gemiddelde naar het bestand
+        log.write("{0}, {1}, {2}, {3}\n".format(strftime("%d/%m/%Y, %H:%M:%S"), temperature1, temperature2, gemiddelde_temp)) # Schrijf de datum, tijd, temperatuur van sensor 1, temperatuur van sensor 2 en het gemiddelde naar het bestand
 
